@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            background-image: url('https://i.pinimg.com/originals/2b/4a/26/2b4a26687c5b6d4cdc46a025e6c74599.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #result-container {
+            margin-top: 20px;
+        }
+        #friend-photo {
+            display: none;
+            border-radius: 50%;
+            border: 5px solid #4caf50;
+            width: 70%;
+            max-width: 300px; /* Limit the maximum width of the image */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <h1>al-rahmah game!</h1>
+    <button onclick="playGame()">Click to Play</button>
+    <div id="result-container"></div>
+    <img id="friend-photo" src="photo_2024-05-29_18-08-27.jpg" alt="Friend's Photo">
+
+    <script>
+        function playGame() {
+            var resultContainer = document.getElementById("result-container");
+            var friendPhoto = document.getElementById("friend-photo");
+
+            // Simulate winning by generating a random number between 1 and 10
+            var randomNumber = Math.floor(Math.random() * 10) + 1;
+
+            // If the random number is even, display a win message and show the friend's photo
+            if (randomNumber % 2 === 0) {
+                resultContainer.innerHTML = "<p>You won! Congratulations!</p>";
+                friendPhoto.style.display = "block"; // Show the friend's photo
+            } else {
+                resultContainer.innerHTML = "<p>Sorry, you lost. Try again!</p>";
+                friendPhoto.style.display = "none"; // Hide the friend's photo
+            }
+        }
+    </script>
+</body>
+</html>
